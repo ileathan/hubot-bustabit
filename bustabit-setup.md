@@ -1,9 +1,9 @@
-# When you log in to bustabit.com select the "AUTO" tab, then at the
-# bottom right click the "autobet" button and select "custom"
-# select everything inside the text area and delete it
-# copy paste the entire contents of this text into that text field and click run
-# If your hubot is running on your local machine all should be working
-# YOU MUST CHANGE THE LINE BELLOW IF YOU RUN THE HUBOT ON A SERVER
+ When you log in to bustabit.com select the "AUTO" tab, then at the
+ bottom right click the "autobet" button and select "custom"
+ select everything inside the text area and delete it
+ copy paste the entire contents of this text into that text field and click run
+ If your hubot is running on your local machine all should be working
+ YOU MUST CHANGE THE LINE BELLOW IF YOU RUN THE HUBOT ON A SERVER
 SERVER = 'http://localhost:8080/'
 
 # INIT
