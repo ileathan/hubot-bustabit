@@ -1,15 +1,15 @@
- When you log in to bustabit.com select the "AUTO" tab, then at the
- bottom right click the "autobet" button and select "custom"
- select everything inside the text area and delete it
- copy paste the entire contents of this text into that text field and click run
- If your hubot is running on your local machine all should be working
- YOU MUST CHANGE THE LINE BELLOW IF YOU RUN THE HUBOT ON A SERVER
-SERVER = 'http://localhost:8080/'
+// When you log in to bustabit.com select the "AUTO" tab, then at the
+// bottom right click the "autobet" button and select "custom"
+// select everything inside the text area and delete it
+// copy paste the entire contents of this text into that text field and click run
+// If your hubot is running on your local machine all should be working
+// YOU MUST CHANGE THE LINE BELLOW IF YOU RUN THE HUBOT ON A SERVER
+// SERVER = 'http://localhost:8080/'
 
-# INIT
+// INIT
 var bet = {};
 
-# CHECK HUBOT SERVER FOR BET
+// CHECK HUBOT SERVER FOR BET
 function CheckBet () {
   xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET", SERVER+'bet', false);
@@ -26,7 +26,7 @@ function CheckBet () {
   xmlhttp.send();
 }
  
-# UPDATE THE HUBOT SERVER WITH INFORMATION
+// UPDATE THE HUBOT SERVER WITH INFORMATION
 function Info(params) {
   var http = new XMLHttpRequest();
   http.open("POST", SERVER+'info', true);
