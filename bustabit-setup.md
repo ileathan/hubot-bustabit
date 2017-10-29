@@ -7,9 +7,11 @@
 // SERVER = 'http://localhost:8080/'
 
 // INIT
+
 var bet = {};
 
 // CHECK HUBOT SERVER FOR BET
+
 function CheckBet () {
   xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET", SERVER+'bet', false);
@@ -27,6 +29,7 @@ function CheckBet () {
 }
  
 // UPDATE THE HUBOT SERVER WITH INFORMATION
+
 function Info(params) {
   var http = new XMLHttpRequest();
   http.open("POST", SERVER+'info', true);
