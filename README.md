@@ -4,8 +4,8 @@ Hubot bustabit integration which supports single or multi person betting.
 Future versions will support betting with personal funds along with the 
 current community fund only mode.
 
-**For this script to work you must keep a browser logged in to bustabit.com and you must follow 
-the directions in [`bustabit_script.js`](bustabit_script.js)** (copy paste it to bustabit.com).**
+**For this script to work you must keep a browser logged in to bustabit.com and you must follow**
+**the directions in [`bustabit_script.js`](bustabit_script.js)** (copy paste it to bustabit.com).**
 
 See [`src/bustabit.js`](src/bustabit.js) for full documentation.
 
