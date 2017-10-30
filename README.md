@@ -21,6 +21,8 @@ Then add **hubot-bustabit** to your `external-scripts.json`:
 ["hubot-bustabit"]
 ```
 
+You hubot should now have bustabit integration.
+
 ## Sample Ussage
 
 ```
