@@ -26,17 +26,17 @@
 
     // UPDATE THE HUBOT SERVER WITH INFORMATION
     function Info(params) {
-     var http = new XMLHttpRequest();
+      var http = new XMLHttpRequest();
       http.open("POST", SERVER + 'info', true);
       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       http.send(params);
     }
 
     engine.on('game_crash', function(data) {
-      if (engine.getEngine().playerInfo.leathan) {
+      if (engine.getEngine().playerInfo[engine.getUsername()]) {
         var win = false;
-        if (engine.getEngine().playerInfo.leathan.stopped_at) { win = true } 
-        Info('game_crash=' + data.game_crash + '&balance=' + engine.getBalance() + '&win=' + win)
+        if (engine.getEngine().playerInfo[engine.getUsername()].stopped_at) win = true;
+        Info('game_crash=' + data.game_crash + '&balance=' + engine.getBalance() + '&win=' + win);
       }
       CheckBet();
     });
