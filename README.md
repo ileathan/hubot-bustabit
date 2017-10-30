@@ -25,7 +25,7 @@ Then add **hubot-bustabit** to your `external-scripts.json`:
 
 ```
 user1>> bet 100 1.01
-hubot>> Betting 1 bit(s) next game. [Cashout @ x1.12]
+hubot>> Betting 100 bit(s) next game. [Cashout @ x1.01]
 hubot>> Bet placed, you may rebet.
 hubot>> You won 101.00 bit(s). Total 743
 
