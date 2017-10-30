@@ -7,7 +7,7 @@
 // INIT
 const SERVER = 'http://localhost:8080/';
 const USER   = engine.getUsername();
-var won = false; // Keep track of whether we won or lost.
+var won;     // Keep track of whether we won or lost.
 
 // Update the server with game information.
 function updateServer(params) {
@@ -26,8 +26,8 @@ engine.on('game_crash', function(data) {
 });
 
 // User won.
-engine.on('cashed_out', function(resp) {
-  if(resp.username === USER) {
+engine.on('cashed_out', function(data) {
+  if(data.username === USER) {
     won = true;
     updateServer('win=true&balance='+engine.getBalance())
   }
@@ -38,11 +38,11 @@ function CheckBet () {
   xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET", SERVER + 'bustabit/getbet', true);
   xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      bet = JSON.parse(this.responseText);
+    if(this.readyState === 4 && this.status === 200) {
+      let bet = JSON.parse(this.responseText);
       if(bet.size) {
-        engine.placeBet(bet.size*100, parseInt(bet.ratio*100), false);
         won = false;
+        engine.placeBet(bet.size*100, parseInt(bet.ratio*100), false)
       }
     }
   };
