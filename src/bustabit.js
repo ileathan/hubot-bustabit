@@ -89,3 +89,4 @@ module.exports = bot => {
     res.json(lastbet = betQue.shift())
   })
 }
+});
