@@ -41,10 +41,10 @@ function CheckBet () {
   xmlhttp.open("GET", SERVER + 'bustabit/getbet', true);
   xmlhttp.onreadystatechange = function() {
     if(this.readyState === 4 && this.status === 200) {
-      let bet = JSON.parse(this.responseText.toString());
-      if(bet.size) {
+      let bet = JSON.parse(this.responseText);
+      if(bet.amount) {
         won = false;
-        engine.placeBet(bet.size*100, parseInt(bet.ratio*100), false)
+        engine.placeBet(bet.amount*100, parseInt(bet.ratio*100), false)
       }
     }
   };
