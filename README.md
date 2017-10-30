@@ -1,13 +1,13 @@
 # hubot-bustabit
 
 A hubot bustabit integration script which supports single or multi person betting.
-Future versions will support single person funds for betting in community channels
+Future versions will support single person fund mode for betting in community channels
 aside from the current community fund only mode.
 
 **NOTE - For this script to work you must keep a browser logged in to bustabit.com
-and you must follow the directions in [`bustabit-setup.md`](bustabit-setup.md)**
+and you must follow the directions in [`bustabit_script.js`](bustabit_script.js)** (copy paste it to bustabit.com).
 
-See [`src/bustabit.coffee`](src/bustabit.coffee) for full documentation.
+See [`src/bustabit.js`](src/bustabit.js) for full documentation.
 
 ## Installation
 
