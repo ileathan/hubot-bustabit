@@ -18,37 +18,45 @@
 request = require('request');
 
 // INIT
-var lastbet      =  {};
-var betQue       =  [];
-var room         =  '';
-var allBets      =  [];
+var lastbet   = {};
+var betQue    = [];
+var room      = '';
+var allBets   = [];
+var balance   = 100;  // Set this value to your balane, otherwise it will auto set after first bet.
+var first_bet = true; // keep track of the first bet incase the user forgets to set his balance above.
+const MAX_BET = 10;   // the max bet as a percentage of blance
 
 // MAIN
 module.exports = bot => {
   bot.brain.on('loaded', () => {
-    if(!bot.brain.data.allBets) bot.brain.data.allBets = []
-    allBets = bot.brain.data.allBets;
-    // (allBets = bot.brain.data).allBets || (allBets.allBets = []); allBets = allBets.allBets
-    // allBets now references bot.brain.data.allBets even if it didnt exist before.
+    if(!bot.brain.data.allBets) bot.brain.data.allBets = [];
+    allBets = bot.brain.data.allBets
   })
   bot.respond(/bets$/i, r => {
-    if(Boolean(betQue.length)) r.send("The bet que is " + betQue.length + " long.")
+    if(betQue.length) r.send("The bet que is " + betQue.length + " long.");
     else r.send("The bet que is empty.")
   })
   bot.respond(/view bets$/i, r => {
-    if(Boolean(betQue.length)) r.send(JSON.stringify(betQue))
+    if(betQue.length) r.send(JSON.stringify(betQue));
     else r.send("The bet que is empty.")
   })
   bot.hear(/^bet (\d+) (\d+\.?\d{0,2})$/i, r => {
-    room = r.message.room
+    if(r.match[1] / balance > MAX_BET / 100) {
+      if(first_bet) {
+        first_bet = false;
+      } else {
+        return r.send("Sorry you cannot bet more than " + MAX_BET + "% of your balance.")
+      }
+    }
+    room = r.message.room;
     allBets.push({
       amount: r.match[1],
       ratio: r.match[2],
-      id: bot.brain.data.allBets.length || 0,
+      id: bot.brain.data.allBets.length,
       user: r.message.user.name,
       profit: 0
-    })
-    if(Boolean(betQue.length)) {
+    });
+    if(betQue.length) {
       r.send("Adding bet to que with ID#" + allBets.length + ". [" + r.match[1] + " bit(s) / Cashout @ x" + r.match[2] + "]")
     } else {
       r.send("Betting " + r.match[1] + " bit(s) on next game. [Cashout @ x" + r.match[2] + "]")
@@ -90,3 +98,4 @@ module.exports = bot => {
   })
 }
 });
+
