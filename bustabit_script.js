@@ -2,6 +2,8 @@
 // bottom right click the "autobet" button and select "custom"
 // select everything inside the text area and delete it
 // copy paste the entire contents of this text into that text field and click run
+// You must also "allow unsafe scripts" which is an option in your browser
+// for example on chrome it will show you a little shield that you need to click.
 // Your Mubot should now have bustabit integration.
 
 // INIT
@@ -39,7 +41,7 @@ function CheckBet () {
   xmlhttp.open("GET", SERVER + 'bustabit/getbet', true);
   xmlhttp.onreadystatechange = function() {
     if(this.readyState === 4 && this.status === 200) {
-      let bet = JSON.parse(this.responseText);
+      let bet = JSON.parse(this.responseText.toString());
       if(bet.size) {
         won = false;
         engine.placeBet(bet.size*100, parseInt(bet.ratio*100), false)
