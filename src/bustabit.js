@@ -18,7 +18,6 @@
 request = require('request');
 
 // INIT
-var balance      =  0;
 var lastbet      =  {};
 var betQue       =  [];
 var room         =  '';
@@ -58,8 +57,7 @@ module.exports = bot => {
     betQue.push(allBets.slice(-1))
   })
 
-  // WEB
-
+  // WEB CONFIG
   bot.router.use('/bustabit', (req, res, next) => {
     res.setHeader('content-type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -68,6 +66,7 @@ module.exports = bot => {
     next()
   })
 
+  // WEB API
   bot.router.post('/bustabit/finished', (req, res) => {
     var info = JSON.parse(req.body.payload);
     if(info.win && !info.game_crash) {
@@ -86,7 +85,6 @@ module.exports = bot => {
     }
     res.send('Ok.')
   })
-
   bot.router.get('/bustabit/getbet', (req, res) => {
     res.json(lastbet = betQue.shift())
   })
