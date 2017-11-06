@@ -12,6 +12,10 @@ The screenshot bellow is using Discord, but you may use Twitch, Slack, or anythi
 
 See [`src/bustabit.js`](src/bustabit.js) for full documentation.
 
+## Requirements
+
+Node & Hubot
+
 ## Installation
 
 Once you have insalled Hubot, in hubot's root directory, run:
